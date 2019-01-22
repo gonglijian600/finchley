@@ -31,7 +31,7 @@ mySimpleUrlLogoutSuccessHandler.setDefaultTargetUrl("http://localhost:9060/logou
                 .and()
                 .logout()
                 .logoutSuccessHandler(mySimpleUrlLogoutSuccessHandler)
-                //.logoutSuccessUrl("http://localhost:9060/logout")//此处应该使用handler来利用feign来声明式调用oauth的退出逻辑=流程，
+                .logoutSuccessUrl("http://localhost:9060/logout")//此处应该使用handler来利用feign来声明式调用oauth的退出逻辑=流程，
                 .deleteCookies("ZUUL")
                 .and()
                 .csrf()

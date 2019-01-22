@@ -11,8 +11,8 @@ spring:
       ddl-auto: none
   datasource:
     url: jdbc:mysql://10.173.48.66:3306/zqin?useUnicode=true&characterEncoding=utf-8&&useSSL=false
-    username: ocr
-    password: Deloitte!@
+    username: username
+    password: password
     druid:
       driver-class-name: com.mysql.jdbc.Driver
   redis:
