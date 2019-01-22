@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: dashboard
+server:
+  port: 8770
+eureka:
+  client:
+    service-url:
+      defaultZone: http://username:password@192.168.20.20:8761/eureka/,http://username:password@192.168.20.24:8761/eureka/
+  instance:
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    prefer-ip-address: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always

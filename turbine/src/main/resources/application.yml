@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: turbine
+  rabbitmq:
+    addresses: 192.168.20.10:5672,192.168.20.4:5672,192.168.20.19:5672
+    username: username
+    password: password
+server:
+  port: 8769
+turbine:
+  aggregator:
+    cluster-config: default
+  app-config: hystrix
+  cluster-name-expression: new String("default")
+eureka:
+  client:
+    service-url:
+      defaultZone: http://username:password@10.173.48.104:8761/eureka/,http://username:password@10.173.48.103:8761/eureka/
+  instance:
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    prefer-ip-address: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      cors:
+        allowed-origins: "*"
+        allowed-methods: "*"
+  endpoint:
+    health:
+      show-details: always

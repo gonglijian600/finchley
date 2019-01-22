@@ -1,0 +1,88 @@
+#server:
+#  port: 8762
+#spring:
+#  application:
+#    name: zuul
+#  rabbitmq:
+#    addresses: 192.168.20.10:5672,192.168.20.4:5672,192.168.20.19:5672
+#    username: admin
+#    password: Deloitte12
+#  #配置中心
+#  cloud:
+#    config:
+#      label: master
+#      discovery:
+#        enabled: true
+#        service-id: configserver
+#      fail-fast: true
+#      profile: dev
+#      retry:
+#        max-attempts: 3
+#        multiplier: 1.2
+#        initial-interval: 1000
+#        max-interval: 2000
+#    bus:
+#      trace:
+#        enabled: true
+#  zipkin:
+#    base-url: http://10.173.48.104:9411
+#  sleuth:
+#    messaging:
+#      rabbit:
+#        enabled: true
+#    sampler:
+#      probability: 0.6
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://deloitte:deloitte@192.168.20.20:8761/eureka/,http://deloitte:deloitte@192.168.20.24:8761/eureka/
+#  instance:
+#    prefer-ip-address: true
+#    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#      cors:
+#        allowed-origins: "*"
+#        allowed-methods: "*"
+#  endpoint:
+#    health:
+#      show-details: always
+#zuul:
+#  host:
+#    connect-timeout-millis: 10000
+#    socket-timeout-millis: 60000
+#  routes:
+#    uaa:
+#      path: /uaa/**
+#      strip-prefix: true
+#      sensitiveHeaders:
+#      serviceId: auth
+#security:
+#  oauth2:
+#    client:
+#      access-token-uri: http://10.10.8.2:9030/uaa/oauth/token
+#      user-authorization-uri: http://10.10.8.2:9030/uaa/oauth/authorize
+#      resource:
+#        user-info-uri:  http://10.10.8.2:9030/uaa/user
+#        prefer-token-info: false
+###############end#####################
+#####超时配置####
+#ribbon:
+#  ReadTimeout: 10000
+#  ConnectTimeout: 10000
+#  MaxAutoRetries: 1
+#  MaxAutoRetriesNextServer: 2
+#  eureka:
+#    enabled: true
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        timeout:
+#          enabled: true
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 600000

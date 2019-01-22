@@ -1,0 +1,31 @@
+server:
+  port: 8768
+spring:
+  application:
+    name: admin
+  boot:
+    admin:
+      ui:
+        title: config-server
+  security:
+    user:
+      name: username
+      password: password
+eureka:
+  client:
+    service-url:
+      defaultZone: http://username:password@192.168.20.20:8761/eureka/,http://username:password@192.168.20.24:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    metadata-map:
+      user.name: username
+      user.password: password
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      cors:
+        allowed-methods: "*"
+        allowed-origins: "*"

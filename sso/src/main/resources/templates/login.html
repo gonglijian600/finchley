@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <title>登录界面</title>
+    <link rel="stylesheet" href="../css/reset.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="stylesheet" href="../css/font-awesome.min.css"/>
+</head>
+<body>
+<div class="wrap login_wrap">
+    <div class="content">
+        <div class="logo"></div>
+        <div class="login_box">
+
+            <div class="login_form">
+                <div class="login_title">
+                    登录
+                </div>
+                <div class="form_text_ipt">
+                    <input id="username" name="username" type="text" placeholder="请输入11位手机号"/>
+                </div>
+
+                <div class="form_text_ipt commonLogin">
+                    <input id="password" name="password" type="password" placeholder="密码"/>
+                </div>
+
+                    <div class="form_text_ipt clearFloat form_text_iptver commonLogin">
+                        <input id="kaptcha_code" style="width: 150px;" name="kaptcha_code" type="text" placeholder="验证码"/>
+                        <img id="kaptcha"  class="verificationNum" src="../oauth2.0/kaptcha/code" title="更换验证码" onclick="javascript:this.src='../oauth2.0/kaptcha/code?random='+Math.random()"/>
+                    </div>
+                <div class="form_check_ipt">
+                    <div class="left check_left">
+                        <label><input name="remember-me" type="checkbox"/> 下次自动登录</label>
+                    </div>
+                    <div class="right check_right">
+                        <a href="#">忘记密码</a>
+                    </div>
+                </div>
+
+                <div class="form_btn">
+                    <button  id="login">登录</button>
+                </div>
+                <div class="form_reg_btn">
+                    <span>还没有帐号？</span><a href="../oauth2.0/register">马上注册</a>
+                </div>
+
+                <div class="other_login">
+                    <div class="right other_right">
+                        <a href="../login/qq"><i class="fa fa-qq fa-2x"></i></a>
+                        <a href="../login/weixin"><i class="fa fa-weixin fa-2x"></i></a>
+                        <a href="../auth/weibo"><i class="fa fa-weibo fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/login.js"></script>
+</body>
+</html>
